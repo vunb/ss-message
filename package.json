@@ -4,7 +4,8 @@
   "description": "SuperScript Message Object",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib --copy-files",
+    "build": "babel src --presets es2015 --out-dir lib --copy-files",
+    "postinstall": "npm run build",    
     "lint": "eslint --env node src *.js",
     "test": "mocha --compilers js:babel-register test -R spec -s 1700 -t 300000 --recursive",
     "prepublish": "npm run build"

@@ -95,7 +95,9 @@ const pennToWordnet = function pennToWordnet(pennTag) {
 const fixup = function fixup(cb) {
   // fix numeric forms
   // twenty-one => 21
-  this.message.clean = nlp(this.message.clean).values().toNumber().all().out('text');
+  // remove this feature in vietnamese
+  // because it will convert: 'tên' --> '10'
+  // this.message.clean = nlp(this.message.clean).values().toNumber().all().out('text');
 
   // singalize / lemmatize
   // This does a slightly better job than `.split(" ")`
